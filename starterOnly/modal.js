@@ -38,7 +38,7 @@ const validate = () => {
   const firstName = document.getElementById("first");
   const lastName = document.getElementById("last");
   const email = document.getElementById("email");
-  const birthdate = document.getElementById("birthdate");
+  const birthDate = document.getElementById("birthdate");
   const quantity = document.getElementById("quantity");
   const location = document.getElementsByName("location");
   const conditions = document.getElementById("checkbox1");
@@ -73,7 +73,13 @@ const validate = () => {
     alert("Votre email n'est pas valide.");
   }
 
-  console.log(myRegx.test(email.value));
+  // birth
+  if (birthDate.value === "") {
+    alert("Vous devez entrer votre date de naissance.");
+    isValidate = false;
+  }
+
+  console.log(birthDate.value);
 
   // Quantity
 
