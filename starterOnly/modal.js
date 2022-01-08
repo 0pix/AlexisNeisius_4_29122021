@@ -19,14 +19,11 @@ const launchModal = () => {
   modalbg.style.display = "block";
 };
 
+// Close Modal form
+
 const closeModal = () => {
   modalbg.style.display = "none";
 };
-
-// //Close modal form
-// function closeModal() {
-//   modalbg.style.display = "none";
-// }
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -44,17 +41,77 @@ const validate = () => {
   const birthdate = document.getElementById("birthdate");
   const quantity = document.getElementById("quantity");
   const location = document.getElementsByName("location");
-  const conditions = document.querySelector(".checkbox-icon");
+  const conditions = document.getElementById("checkbox1");
 
-  if (firstName.value.length < 4) {
+  // Fonction regx
+  //  https://emailregex.com/
+
+  let myRegx =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  // FisrtName
+
+  if (firstName.value.length < 2) {
+    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    isValidate = false;
+  }
+
+  // Name
+
+  if (lastName.value.length < 2) {
     isValidate = false;
     alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
   }
-  console.log(email);
+
+  // Email
+
+  if (email.value === "") {
+    isValidate = false;
+    alert("Vous devez entrer votre email.");
+  } else if (myRegx.test(email.value) == false) {
+    isValidate = false;
+    alert("Votre email n'est pas valide.");
+  }
+
+  console.log(myRegx.test(email.value));
+
+  // Quantity
+
+  if (quantity.value === "") {
+    isValidate = false;
+    alert("Veuillez choisir un nombre.");
+  } else if (typeof parseInt(quantity.value) != "number") {
+    isValidate = false;
+    alert("Veuillez choisir un nombre.");
+  }
+
+  // Location
+
+  let valeur;
+  for (var i = 0; i < location.length; i++) {
+    if (location[i].checked) {
+      valeur = location[i].value;
+    }
+  }
+
+  if (valeur === undefined) {
+    isValidate = false;
+    alert("Vous devez choisir une option.");
+  }
+
+  // Condition
+
+  if (conditions.checked === false) {
+    isValidate = false;
+    alert("Vous devez vérifier que vous acceptez les termes et conditions.");
+  }
+
+  if (isValidate === true) {
+    alert("Formulaire valide.");
+  }
 };
 
-validate();
-//No refreh
+//No refreh form
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
