@@ -209,6 +209,21 @@ input {
   border-radius: 8px;
   font-size: 20px;
   height: 48px;
+  /* margin-bottom: 20px; */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.6em;
+  display: none;
+}
+
+#validate-message {
+  font-size: 0.6em;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  display: none;
 }
 
 .text-control-validate {

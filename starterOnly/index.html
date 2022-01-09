@@ -59,22 +59,37 @@
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last" /><br>
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
             </div>
             <div class="formData">
               <label for="last">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email" /><br>
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
             </div>
             <div class="formData">
               <label for="date">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
             </div>
             <div class="formData">
               <label for="location">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
             </div>
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
             <div class="formData">
@@ -102,6 +117,9 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
             </div>
 
             <div class="formData">
@@ -111,12 +129,18 @@
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
+              <div class="error-message">
+                <p>message d'érreur</p>
+              </div>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
                 Je Je souhaite être prévenu des prochains évènements.
               </label>
               <br>
+              <div id="validate-message">
+                <p>Merci ! Votre réservation a été reçue.</p>
+              </div>
             </div>
             <input class="btn-submit" type="submit" class="button" value="C'est parti" />
           </form>

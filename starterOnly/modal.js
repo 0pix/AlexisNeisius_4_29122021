@@ -31,7 +31,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 //Close modal event
 closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
-//Submit
+//Submit function
 
 const validate = () => {
   let isValidate = true;
@@ -42,53 +42,77 @@ const validate = () => {
   const quantity = document.getElementById("quantity");
   const location = document.getElementsByName("location");
   const conditions = document.getElementById("checkbox1");
+  const errorMessage = document.getElementsByClassName("error-message");
+  const validateMessage = document.getElementById("validate-message");
+  const boutonValidate = document.getElementsByClassName("btn-submit");
 
-  // Fonction regx
+  // Regx
   //  https://emailregex.com/
 
-  let myRegx =
+  const myRegx =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   // FisrtName
 
   if (firstName.value.length < 2) {
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
     isValidate = false;
+    errorMessage[0].style.display = "block";
+    errorMessage[0].innerHTML =
+      "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>";
+  } else {
+    errorMessage[0].style.display = "none";
   }
 
   // Name
 
   if (lastName.value.length < 2) {
     isValidate = false;
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+    errorMessage[1].style.display = "block";
+    errorMessage[1].innerHTML =
+      "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du nom.</p></div>";
+  } else {
+    errorMessage[1].style.display = "none";
   }
 
   // Email
 
   if (email.value === "") {
     isValidate = false;
-    alert("Vous devez entrer votre email.");
+    errorMessage[2].style.display = "block";
+    errorMessage[2].innerHTML =
+      "<div><p>Vous devez entrer votre email.</p></div>";
   } else if (myRegx.test(email.value) == false) {
     isValidate = false;
-    alert("Votre email n'est pas valide.");
+    errorMessage[2].style.display = "block";
+    errorMessage[2].innerHTML =
+      "<div><p>Votre email n'est pas valide.</p></div>";
+  } else {
+    errorMessage[2].style.display = "none";
   }
 
-  // birth
+  // Birth date
+
   if (birthDate.value === "") {
-    alert("Vous devez entrer votre date de naissance.");
     isValidate = false;
+    errorMessage[3].style.display = "block";
+    errorMessage[3].innerHTML =
+      "<div><p>Vous devez entrer votre date de naissance.</p></div>";
+  } else {
+    errorMessage[3].style.display = "none";
   }
-
-  console.log(birthDate.value);
 
   // Quantity
 
   if (quantity.value === "") {
     isValidate = false;
-    alert("Veuillez choisir un nombre.");
+    errorMessage[4].style.display = "block";
+    errorMessage[4].innerHTML = "<div><p>Veuillez choisir un nombre.</p></div>";
   } else if (typeof parseInt(quantity.value) != "number") {
     isValidate = false;
-    alert("Veuillez choisir un nombre.");
+    errorMessage[4].style.display = "block";
+    errorMessage[4].innerHTML = "<div><p>Veuillez choisir un nombre.</p></div>";
+  } else {
+    errorMessage[4].style.display = "none";
   }
 
   // Location
@@ -102,22 +126,35 @@ const validate = () => {
 
   if (valeur === undefined) {
     isValidate = false;
-    alert("Vous devez choisir une option.");
+    errorMessage[5].style.display = "block";
+    errorMessage[5].innerHTML =
+      "<div><p>Vous devez choisir une option.</p></div>";
+  } else {
+    errorMessage[5].style.display = "none";
   }
 
-  // Condition
+  // Conditions
 
   if (conditions.checked === false) {
     isValidate = false;
-    alert("Vous devez vérifier que vous acceptez les termes et conditions.");
+    errorMessage[6].style.display = "block";
+    errorMessage[6].innerHTML =
+      "<div><p>Vous devez vérifier que vous acceptez les termes et conditions.</p></div>";
+  } else {
+    errorMessage[6].style.display = "none";
   }
 
+  // Validate
+
   if (isValidate === true) {
-    alert("Formulaire valide.");
+    validateMessage.style.display = "block";
+    boutonValidate[0].style.backgroundColor = "#279E7A";
+    // alert("Merci ! Votre réservation a été reçue");
   }
 };
 
 //No refreh form
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
