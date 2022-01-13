@@ -23,7 +23,7 @@
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-bars" id="iconTopNav"></i>
       </a>
     </div>
   </div>
@@ -55,6 +55,9 @@
       <div class="content">
         <span class="close"></span>
         <div class="modal-body">
+
+          <!-- Form -->
+
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
             <div class="formData">
               <label for="first">Prénom</label><br>
@@ -71,7 +74,7 @@
               </div>
             </div>
             <div class="formData">
-              <label for="last">E-mail</label><br>
+              <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email" /><br>
               <div class="error-message">
                 <p>message d'érreur</p>
@@ -143,6 +146,17 @@
               </div>
             </div>
             <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <div id="thank-form">
+              <div>
+                <p>
+                  Merci pour </br>
+                  votre inscription.
+                </p>
+              </div>
+              <div><span id="btn-close-modal">Fermer</span></div>
+
+
+            </div>
           </form>
         </div>
       </div>

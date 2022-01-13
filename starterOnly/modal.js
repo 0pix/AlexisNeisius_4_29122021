@@ -1,10 +1,19 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  console.log(x);
+  const x = document.getElementById("myTopnav");
+  const menuTopNav = document.getElementsByClassName("icon");
+  const iconTopNav = document.getElementById("iconTopNav");
+  console.log(iconTopNav);
+  // console.log(x);
   if (x.className === "topnav") {
     x.className += " responsive";
+    menuTopNav[0].style.backgroundColor = "#ff0000";
+    menuTopNav[0].style.borderRadius = "15px";
+    iconTopNav.style.color = "white";
   } else {
     x.className = "topnav";
+    menuTopNav[0].style.backgroundColor = "transparent";
+    menuTopNav[0].style.borderRadius = "0px";
+    iconTopNav.style.color = "#ff0000";
   }
 }
 
@@ -13,8 +22,10 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelectorAll(".close");
+const btnCloseModal = document.getElementById("btn-close-modal");
 
 // launch modal form
+
 const launchModal = () => {
   modalbg.style.display = "block";
 };
@@ -26,10 +37,13 @@ const closeModal = () => {
 };
 
 // launch modal event
+
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 //Close modal event
+
 closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+btnCloseModal.addEventListener("click", closeModal);
 
 //Submit function
 
@@ -43,25 +57,43 @@ const validate = () => {
   const location = document.getElementsByName("location");
   const conditions = document.getElementById("checkbox1");
   const errorMessage = document.getElementsByClassName("error-message");
-  const validateMessage = document.getElementById("validate-message");
+  const validateMessage = document.getElementById("thank-form");
   const boutonValidate = document.getElementsByClassName("btn-submit");
-
+  const input = document.getElementsByClassName("text-control");
   // Regx
   //  https://emailregex.com/
-
   const myRegx =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  // FisrtName
+  // FirstName
+
+  function falseValidation(tablerNumber, message) {
+    isValidate = false;
+    errorMessage[tablerNumber].style.display = "block";
+    errorMessage[tablerNumber].innerHTML = message;
+  }
+
+  function trueValidation(tablerNumber) {
+    errorMessage[tablerNumber].style.display = "none";
+  }
 
   if (firstName.value.length < 2) {
-    isValidate = false;
-    errorMessage[0].style.display = "block";
-    errorMessage[0].innerHTML =
-      "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>";
+    falseValidation(
+      0,
+      "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>"
+    );
   } else {
-    errorMessage[0].style.display = "none";
+    trueValidation(0);
   }
+
+  // if (firstName.value.length < 2) {
+  //   isValidate = false;
+  //   errorMessage[0].style.display = "block";
+  //   errorMessage[0].innerHTML =
+  //     "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>";
+  // } else {
+  //   errorMessage[0].style.display = "none";
+  // }
 
   // Name
 
@@ -147,9 +179,8 @@ const validate = () => {
   // Validate
 
   if (isValidate === true) {
-    validateMessage.style.display = "block";
+    validateMessage.style.display = "flex";
     boutonValidate[0].style.backgroundColor = "#279E7A";
-    // alert("Merci ! Votre réservation a été reçue");
   }
 };
 
