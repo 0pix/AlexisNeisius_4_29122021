@@ -550,6 +550,8 @@ input {
 }
 
 footer {
+  /* background-color: rgb(53, 40, 40); */
+  width: 100%;
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
@@ -662,5 +664,9 @@ footer {
   .hero-text {
     font-size: 1rem;
     margin-top: 10px;
+  }
+
+  footer {
+    justify-content: center;
   }
 }

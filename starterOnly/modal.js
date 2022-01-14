@@ -59,23 +59,39 @@ const validate = () => {
   const errorMessage = document.getElementsByClassName("error-message");
   const validateMessage = document.getElementById("thank-form");
   const boutonValidate = document.getElementsByClassName("btn-submit");
-  const input = document.getElementsByClassName("text-control");
+  const input = document.getElementsByTagName("input");
+  let inputNumber = [
+    firstName,
+    lastName,
+    email,
+    birthDate,
+    quantity,
+    location,
+    conditions,
+  ];
+
   // Regx
   //  https://emailregex.com/
   const myRegx =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  // FirstName
-
-  function falseValidation(tablerNumber, message) {
+  function falseValidation(inputNumber, message) {
     isValidate = false;
-    errorMessage[tablerNumber].style.display = "block";
-    errorMessage[tablerNumber].innerHTML = message;
+    errorMessage[inputNumber].style.display = "block";
+    errorMessage[inputNumber].innerHTML = message;
+    if ((input[inputNumber].type == "text", "email")) {
+      input[inputNumber].style.border = "3px red solid";
+    }
   }
 
-  function trueValidation(tablerNumber) {
-    errorMessage[tablerNumber].style.display = "none";
+  function trueValidation(inputNumber) {
+    errorMessage[inputNumber].style.display = "none";
+    if ((input[inputNumber].type == "text", "email", "date", "number")) {
+      input[inputNumber].style.border = "3px green solid";
+    }
   }
+
+  // FirstName
 
   if (firstName.value.length < 2) {
     falseValidation(
@@ -86,65 +102,46 @@ const validate = () => {
     trueValidation(0);
   }
 
-  // if (firstName.value.length < 2) {
-  //   isValidate = false;
-  //   errorMessage[0].style.display = "block";
-  //   errorMessage[0].innerHTML =
-  //     "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du prénom.</p></div>";
-  // } else {
-  //   errorMessage[0].style.display = "none";
-  // }
-
   // Name
 
   if (lastName.value.length < 2) {
-    isValidate = false;
-    errorMessage[1].style.display = "block";
-    errorMessage[1].innerHTML =
-      "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du nom.</p></div>";
+    falseValidation(
+      1,
+      "<div><p>Veuillez entrer 2 caractères ou plus pour le champ du nom.</p></div>"
+    );
   } else {
-    errorMessage[1].style.display = "none";
+    trueValidation(1);
   }
 
   // Email
 
   if (email.value === "") {
-    isValidate = false;
-    errorMessage[2].style.display = "block";
-    errorMessage[2].innerHTML =
-      "<div><p>Vous devez entrer votre email.</p></div>";
+    falseValidation(2, "<div><p>Vous devez entrer votre email.</p></div>");
   } else if (myRegx.test(email.value) == false) {
-    isValidate = false;
-    errorMessage[2].style.display = "block";
-    errorMessage[2].innerHTML =
-      "<div><p>Votre email n'est pas valide.</p></div>";
+    falseValidation(2, "<div><p>Votre email n'est pas valide.</p></div>");
   } else {
-    errorMessage[2].style.display = "none";
+    trueValidation(2);
   }
 
   // Birth date
 
   if (birthDate.value === "") {
-    isValidate = false;
-    errorMessage[3].style.display = "block";
-    errorMessage[3].innerHTML =
-      "<div><p>Vous devez entrer votre date de naissance.</p></div>";
+    falseValidation(
+      3,
+      "<div><p>Vous devez entrer votre date de naissance.</p></div>"
+    );
   } else {
-    errorMessage[3].style.display = "none";
+    trueValidation(3);
   }
 
   // Quantity
 
   if (quantity.value === "") {
-    isValidate = false;
-    errorMessage[4].style.display = "block";
-    errorMessage[4].innerHTML = "<div><p>Veuillez choisir un nombre.</p></div>";
+    falseValidation(4, "<div><p>Veuillez choisir un nombre.</p></div>");
   } else if (typeof parseInt(quantity.value) != "number") {
-    isValidate = false;
-    errorMessage[4].style.display = "block";
-    errorMessage[4].innerHTML = "<div><p>Veuillez choisir un nombre.</p></div>";
+    falseValidation(4, "<div><p>Veuillez choisir un nombre.</p></div>");
   } else {
-    errorMessage[4].style.display = "none";
+    trueValidation(4);
   }
 
   // Location
@@ -157,23 +154,20 @@ const validate = () => {
   }
 
   if (valeur === undefined) {
-    isValidate = false;
-    errorMessage[5].style.display = "block";
-    errorMessage[5].innerHTML =
-      "<div><p>Vous devez choisir une option.</p></div>";
+    falseValidation(5, "<div><p>Vous devez choisir une option.</p></div>");
   } else {
-    errorMessage[5].style.display = "none";
+    trueValidation(5);
   }
 
   // Conditions
 
   if (conditions.checked === false) {
-    isValidate = false;
-    errorMessage[6].style.display = "block";
-    errorMessage[6].innerHTML =
-      "<div><p>Vous devez vérifier que vous acceptez les termes et conditions.</p></div>";
+    falseValidation(
+      6,
+      "<div><p>Vous devez vérifier que vous acceptez les termes et conditions.</p></div>"
+    );
   } else {
-    errorMessage[6].style.display = "none";
+    trueValidation(6);
   }
 
   // Validate
