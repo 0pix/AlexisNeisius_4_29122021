@@ -5,9 +5,9 @@
   <meta charset="utf-8" />
   <title>Reservation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="modal.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+  <link rel="stylesheet" href="./modal.css">
 </head>
 
 <body>
@@ -61,38 +61,28 @@
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
             <div class="formData">
               <label for="first">Prénom</label><br>
-              <input class="text-control  =" type="text" id="first" name="first" minlength="2" /><br>
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+              <div class="error-message"></div>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last" /><br>
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <div class="error-message"></div>
             </div>
             <div class="formData">
               <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email" /><br>
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <div class="error-message"></div>
             </div>
             <div class="formData">
               <label for="date">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <div class="error-message"></div>
             </div>
             <div class="formData">
               <label for="location">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <div class="error-message"></div>
             </div>
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
             <div class="formData">
@@ -120,9 +110,7 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <div class="error-message"></div>
             </div>
 
             <div class="formData">
@@ -132,9 +120,7 @@
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
-              <div class="error-message">
-                <p>message d'érreur</p>
-              </div>
+              <div class="error-message"></div>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
@@ -167,7 +153,8 @@
       Copyright 2014 - 2022, GameOn Inc.
     </p>
   </footer>
-  <script src="modal.js"></script>
+
+  <script src="./modal.js"></script>
 </body>
 
 </html>
