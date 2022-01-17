@@ -8,10 +8,9 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
+/* Landing Page */
 body {
-  /* margin: 0; */
   width: 100%;
   margin: auto;
   max-width: 1300px;
@@ -19,11 +18,8 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  /* max-width: 1300px; */
-  /* margin: 0 auto; */
   overflow-x: hidden;
 }
 
@@ -44,7 +40,6 @@ img {
   align-items: center;
   display: flex;
   padding: 0px 20px;
-  /* position: relative; */
 }
 .header-logo {
   float: left;
@@ -126,7 +121,6 @@ main {
 }
 
 /* Modal form */
-
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -364,10 +358,6 @@ input {
   font-weight: 300;
 }
 
-/* #thank-form p {
-
-} */
-
 #btn-close-modal {
   background: #fe142f;
   display: block;
@@ -384,7 +374,6 @@ input {
 }
 
 /* custom select styles */
-
 .custom-select {
   position: relative;
   font-family: Arial;
@@ -401,7 +390,6 @@ input {
 }
 
 /* Style the arrow inside the select element: */
-
 .select-selected:after {
   position: absolute;
   content: "";
@@ -417,7 +405,6 @@ input {
 }
 
 /* Point the arrow upwards when the select box is open (active): */
-
 .select-selected.select-arrow-active:after {
   transform: rotate(135deg);
   top: 13px;
@@ -435,7 +422,6 @@ input {
 }
 
 /* Style items (options): */
-
 .select-items {
   position: absolute;
   background-color: #fff;
@@ -446,7 +432,6 @@ input {
 }
 
 /* Hide the items when the select box is closed: */
-
 .select-hide {
   display: none;
 }
@@ -456,7 +441,6 @@ input {
   background-color: rgba(0, 0, 0, 0.1);
 }
 /* custom select end */
-
 .text-label {
   font-weight: normal;
   font-size: 16px;
@@ -467,11 +451,9 @@ input {
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  /* overflow: hidden; */
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   overflow: hidden;
-
   width: 100%;
 }
 
@@ -498,7 +480,6 @@ input {
 .hero-content > * {
   position: relative;
   z-index: 1;
-  /* background-color: #be27b6; */
 }
 
 .hero-headline {
@@ -512,7 +493,6 @@ input {
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
-  /* background-color: #279e7a; */
 }
 
 .btn-signup {
@@ -550,13 +530,13 @@ input {
 }
 
 footer {
-  /* background-color: rgb(53, 40, 40); */
   width: 100%;
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
 }
 
+/* Responsive media queries */
 @media screen and (max-width: 1035px) {
   .topnav {
     flex-direction: column;
