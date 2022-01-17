@@ -21,7 +21,7 @@
   <!-- Navbar -->
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png" />
     </div>
     <div class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
@@ -33,7 +33,6 @@
         <i class="fa fa-bars" id="iconTopNav"></i>
       </a>
     </div>
-  </div>
   </div>
 
   <!-- Main -->
@@ -88,12 +87,12 @@
               <div class="error-message"></div>
             </div>
             <div class="formData">
-              <label for="date">Date de naissance</label><br>
+              <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
               <div class="error-message"></div>
             </div>
             <div class="formData">
-              <label for="location">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               <div class="error-message"></div>
             </div>
@@ -127,7 +126,7 @@
             </div>
             <div class="formData">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
-              <label class="checkbox2-label" for="checkbox1" required>
+              <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
@@ -145,11 +144,11 @@
                 <p>Merci ! Votre réservation a été reçue.</p>
               </div>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <input class="btn-submit button" type="submit" value="C'est parti" />
             <div id="thank-form">
               <div>
                 <p>
-                  Merci pour </br>
+                  Merci pour <br>
                   votre inscription.
                 </p>
               </div>
