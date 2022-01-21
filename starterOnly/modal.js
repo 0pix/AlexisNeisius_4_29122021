@@ -24,7 +24,6 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelectorAll(".close");
-const btnCloseModal = document.getElementById("btn-close-modal");
 
 // launch modal form
 const launchModal = () => {
@@ -41,7 +40,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 //Close modal event
 closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
-btnCloseModal.addEventListener("click", closeModal);
 
 /***************|Submit function|***************/
 
